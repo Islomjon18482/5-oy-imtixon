@@ -4,6 +4,45 @@
     box-sizing: border-box;
     font-family: 'Noto Sans', sans-serif;
 }
+.loader{
+    width: 100%;
+    padding-top: 500px;
+    text-align: center;
+    height: 100%;
+}
+@keyframes loadingAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.loader h2{
+    display: flex;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+}
+.loader h2 .dot{
+    display: flex;
+    animation: loadingAnimation 1s infinite;
+    animation-delay: 0.05s;
+}
+.loader h2 .dot1{
+    display: flex;
+    animation: loadingAnimation 1s infinite;
+    animation-delay: 0.10s;
+}
+.loader h2 .dot2{
+    display: flex;
+    animation: loadingAnimation 1s infinite;
+    animation-delay: 0.15s;
+}
 :root{
     --color-background: #FFF;
     --color-text: #202C36;

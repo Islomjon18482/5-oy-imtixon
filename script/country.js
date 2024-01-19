@@ -12,6 +12,8 @@ const main = document.querySelector(".main")
 const btn = document.querySelector(".wrapper")
 const body = document.querySelector("body")
 const mode = document.querySelector(".mode")
+const loaderBlock = document.querySelector(".loader")
+const content = document.querySelector(".body")
 
 body.classList.toggle(`${className}`)
 
@@ -55,11 +57,20 @@ function creatMoreinfo(data){
     `
 }
 
+loaderBlock.style.display = "block"
+content.style.display = "none"
+
+async function loader(){
+    content.style.display = "block"
+    loaderBlock.style.display = "none"
+}
+
 
 document.addEventListener("DOMContentLoaded", function(){
     fetch(`https://countries-api-v7sn.onrender.com/countries/slug/${countryName}`)
     .then(data => data.json())
     .then(data =>{
+        loader()
         let card = creatMoreinfo(data)
         main.innerHTML = card
         const borderCountry = document.querySelectorAll(".nearBy")
@@ -91,3 +102,4 @@ mode.addEventListener("click", function(){
 btn.addEventListener("click", function(){
     window.location.assign(`../index.html?${className}`)
 })
+

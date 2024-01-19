@@ -3,6 +3,8 @@ const list = document.querySelectorAll("li")
 const inp = document.querySelector(".country")
 const mode = document.querySelector(".mode")
 const body = document.querySelector("body")
+const loaderBlock = document.querySelector(".loader")
+const content = document.querySelector(".body")
 
 let className = ''
 
@@ -36,6 +38,13 @@ function creat(data) {
     `
 }
 
+loaderBlock.style.display = "block"
+content.style.display = "none"
+
+async function loader(){
+    content.style.display = "block"
+    loaderBlock.style.display = "none"
+}
 
 async function callAll() {
     try {
@@ -45,6 +54,7 @@ async function callAll() {
             let card = creat(element);
             block.innerHTML += card;
         });
+        loader()
         const card_1 = document.querySelectorAll(".card");
         card_1.forEach(card_2 => {
             card_2.addEventListener("click", function () {
@@ -61,10 +71,9 @@ async function callAll() {
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", function () {
     callAll()
-})
+});
 
 list.forEach(li => {
     li.addEventListener("click", function () {
