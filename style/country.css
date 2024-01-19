@@ -35,6 +35,9 @@ path{
 .wrapper{
     color: var(--color-text);
 }
+.nearBy{
+    background-color: var(--color-card);
+}
 .header{
     width: 1440px;
     margin: 0px auto;

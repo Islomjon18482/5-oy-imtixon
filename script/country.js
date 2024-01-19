@@ -1,11 +1,17 @@
 let url = window.location.href
 let cut = url.lastIndexOf("?")
 let to = url.lastIndexOf("/")
-let countryName = url.substring(cut+1, to)
-let className = url.substring(to+1)
+let countryName = ''
+if(to>=cut){
+    countryName = url.substring(cut+1, to)
+}else{
+    countryName = url.substring(cut+1)
+}
+let className = url.substring(to+1) 
 const main = document.querySelector(".main")
 const btn = document.querySelector(".wrapper")
 const body = document.querySelector("body")
+const mode = document.querySelector(".mode")
 
 body.classList.toggle(`${className}`)
 
@@ -64,12 +70,11 @@ document.addEventListener("DOMContentLoaded", function(){
         borderCountry.forEach(el =>{
             el.addEventListener("click", function(){
                 let elId = this.getAttribute("id")
-                console.log(elId);
                 fetch(`https://countries-api-v7sn.onrender.com/countries?search=${elId}`)
                 .then(data => data.json())
                 .then(data =>{
                     let slug = data.data[0].name.slug;
-                    window.location.assign(`./country.html?${slug}`)
+                    window.location.assign(`./country.html?${slug}/${className}`)
                 })
                 .catch(err =>{
                     console.log(err);
@@ -80,4 +85,8 @@ document.addEventListener("DOMContentLoaded", function(){
     .catch(err =>{
         console.log(err);
     })
+})
+
+mode.addEventListener("click", function(){
+    body.classList.toggle("dark")
 })
