@@ -15,46 +15,42 @@ const mode = document.querySelector(".mode")
 
 body.classList.toggle(`${className}`)
 
-// To go to the main page
-btn.addEventListener("click", function(){
-    window.location.assign("../index.html")
-})
 
 // For complete country information
 function creatMoreinfo(data){
     return `
     <div class="block">
     <div class="flag">
-        <img src="${data.flags.png}" alt="">
+    <img src="${data.flags.png}" alt="">
     </div>
     <div class="country__text">
-        <h3>${data.name.common}</h3>
-        <div class="navigation">
-            <div class="location">
-                <p>Native Name: <span>${data.languages}</span></p>
-                <p>Population: <span>${data.population}</span></p>  
-                <p>Region: <span>${data.region}</span></p>
-                <p>Sub Region: <span>${data.subregion}</span></p>
-                <p>Capital: <span>${data.capital}</span> </p>
-            </div>
-            <div class="more__info">
-                <p>Top Level Domain:<span>.be</span></p>
-                <p>Currencies: <span>${data.currencies}</span></p>
-                <p>Languages: <span>${data.languages}</span></p>
-            </div>
-        </div>
-        <div class="near">
-        <div class="other">
-        <span>Border Countries:</span>
-            ${
-                data.borders.map(element => {
-                    return `<button class="nearBy" id="${element.common}">${element.common}</button>`
-                })
-            }
-        </div>
-        </div>
+    <h3>${data.name.common}</h3>
+    <div class="navigation">
+    <div class="location">
+    <p>Native Name: <span>${data.languages}</span></p>
+    <p>Population: <span>${data.population}</span></p>  
+    <p>Region: <span>${data.region}</span></p>
+    <p>Sub Region: <span>${data.subregion}</span></p>
+    <p>Capital: <span>${data.capital}</span> </p>
     </div>
-        
+    <div class="more__info">
+    <p>Top Level Domain:<span>.be</span></p>
+    <p>Currencies: <span>${data.currencies}</span></p>
+    <p>Languages: <span>${data.languages}</span></p>
+    </div>
+    </div>
+    <div class="near">
+    <div class="other">
+    <span>Border Countries:</span>
+    ${
+        data.borders.map(element => {
+            return `<button class="nearBy" id="${element.common}">${element.common}</button>`
+        })
+    }
+    </div>
+    </div>
+    </div>
+    
     </div>
     `
 }
@@ -89,4 +85,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 mode.addEventListener("click", function(){
     body.classList.toggle("dark")
+    className = "dark"
+})
+// To go to the main page
+btn.addEventListener("click", function(){
+    window.location.assign(`../index.html?${className}`)
 })

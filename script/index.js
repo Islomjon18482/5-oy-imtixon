@@ -4,7 +4,23 @@ const inp = document.querySelector(".country")
 const mode = document.querySelector(".mode")
 const body = document.querySelector("body")
 
-function creat(data) {
+let className = ''
+
+mode.addEventListener('click', function(){
+    body.classList.toggle("dark")
+    if(body.classList.length > 1){
+        className = "dark"
+    }else{
+        className = "white"
+    }
+})
+
+let url = window.location.href
+let to = url.lastIndexOf("?")
+className = url.substring(to+1) 
+body.classList.toggle(`${className}`)
+
+function creat(data) {  
     return `
     <div class="card" id="${data.name.slug}">
     <div class="card__img">
@@ -33,7 +49,7 @@ async function callAll() {
         card_1.forEach(card_2 => {
             card_2.addEventListener("click", function () {
                 let cardId = this.getAttribute("id");
-                if(body.getAttribute("class") == "dark"){
+                if(className == "dark"){
                     window.location.assign(`./pages/country.html?${cardId}/dark`);
                 }else{
                     window.location.assign(`./pages/country.html?${cardId}/white`);
@@ -49,7 +65,6 @@ async function callAll() {
 document.addEventListener("DOMContentLoaded", function () {
     callAll()
 })
-
 
 list.forEach(li => {
     li.addEventListener("click", function () {
@@ -106,6 +121,7 @@ function getValue() {
     })
 }
 
-mode.addEventListener('click', function(){
-    body.classList.toggle("dark")
-})
+
+
+
+

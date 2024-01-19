@@ -35,9 +35,6 @@ path{
 .wrapper{
     color: var(--color-text);
 }
-.nearBy{
-    background-color: var(--color-card);
-}
 .header{
     width: 1440px;
     margin: 0px auto;
@@ -156,4 +153,118 @@ path{
     width: 559.715px;
     height: 483.169px;
     flex-shrink: 0;
+}
+
+@media (max-width: 1440px) {
+    .header{
+        width: 1204px;
+    }
+    .wrapper{
+        width: 1204px;
+    }
+    .main{
+        width: 1204px;
+    }
+    .block{
+        width: 598px;
+        margin: 0px auto;
+        display: block;
+    }
+}
+
+@media (max-width: 1204px) {
+    .header{
+        width: 1024px;
+    }
+    .wrapper{
+        width: 1024px;
+    }
+    .main{
+        width: 1024px;
+    }
+}
+@media (max-width: 1024px) {
+    .header{
+        width: 840px;
+    }
+    .wrapper{
+        width: 840px;
+        justify-content: center;
+    }
+    .main{
+        width: 840px;
+    }
+    h3{
+        margin-top: 20px;
+    }
+}
+@media (max-width: 840px) {
+    .header{
+        margin: 0px auto;
+        width: 560px;
+    }
+    .wrapper{
+        width: 560px;
+        justify-content: center;
+    }
+    .main{
+        width: 560px;
+    }
+    .back{
+        margin-left: 0px;
+    }
+    .navigation{
+        display: block;
+    }
+    .more__info, .navigation, .country__text, .main{
+        width: 560px;
+    }
+}
+@media (max-width: 560px) {
+    body{
+        padding: 0px;
+        display: block;
+        margin-right: 0px;
+    }
+    .header{
+        width: 400px;
+        padding: 30px 16px;
+    }
+    h2{
+        font-size: 14px;
+    }
+    .mode{
+        font-size: 12px;
+    }
+    .wrapper{
+        display: block;
+        width: 400px;
+        margin: 0px auto;
+    }
+    .flag img{
+        display: block;
+        width: 400px;
+        height: 275.924px;
+        flex-shrink: 0;
+    }
+    .back{
+        margin-left: 0px;
+    }
+    .block{
+        margin: 0px auto;
+        padding: 0px;
+        width: 400px;
+    }
+    .main{
+        margin: 0px auto;
+    }
+    .navigation{
+        display: block;
+    }
+    .more__info, .navigation, .country__text, .main{
+        width: 400px;
+    }
+    .near{
+        width: 400px;
+    }
 }
